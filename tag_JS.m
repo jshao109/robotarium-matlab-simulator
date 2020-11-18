@@ -1,7 +1,7 @@
 % Initialize Robotarium object
 N = 5;
 runner_positions = [1 -1 -1 1 ; 0.6 0.6 -0.6 -0.6 ; 0.6 2.4 -2.4 -0.6];
-initial_positions = [generate_initial_conditions(1, 'Width', 0.3, 'Height', 0.3) runner_positions];
+initial_positions = [generate_initial_conditions(1, 'Width', 0.35, 'Height', 0.35) runner_positions];
 r = Robotarium('NumberOfRobots', N, 'ShowFigure', true, 'InitialConditions', initial_positions);
 
 % Single-integrator -> unicycle dynamics mapping
