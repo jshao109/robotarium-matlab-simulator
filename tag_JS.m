@@ -1,7 +1,7 @@
 % Initialize Robotarium object
 N = 5;
-runner_positions = [1 -1 -1 1 ; 0.6 0.6 -0.6 -0.6 ; 0.6 2.4 -2.4 -0.6];
-initial_positions = [generate_initial_conditions(1, 'Width', 0.35, 'Height', 0.35) runner_positions];
+runner_positions = [1.2 -1.2 -1.2 1.2 ; 0.6 0.6 -0.6 -0.6 ; 0.6 2.4 -2.4 -0.6];
+initial_positions = [generate_initial_conditions(1, 'Width', 1, 'Height', 0.7) runner_positions]
 r = Robotarium('NumberOfRobots', N, 'ShowFigure', true, 'InitialConditions', initial_positions);
 
 % Single-integrator -> unicycle dynamics mapping
@@ -48,7 +48,7 @@ while(length(tagged) ~= 4)
     while(~init_checker(x(:, 1), x(:, closest)))
         x = r.get_poses();
         
-        dxi(:, 1) = controller(x(1:2, 1), x(1:2, closest)) * 0.93;
+        dxi(:, 1) = controller(x(1:2, 1), x(1:2, closest)) * 0.92;
 
         for k = activeRunners
             runDist = norm(x(1:2, k)-movement_pts(1:2, k-1));
